@@ -7,7 +7,7 @@
 
 ## 说明
 
-在tmux上显示系统信息，[powerline-status](https://pypi.python.org/pypi/powerline-status/)的效率较低，[thewtex](http://github.com/thewtex/tmux-mem-cpu-load)是一个更好的方案，但原项目中没有显示CPU温度，在thewtex基础上增加了CPU温度显示。
+在tmux上显示系统信息，[powerline-status](https://pypi.python.org/pypi/powerline-status/)的效率较低，[thewtex](http://github.com/thewtex/tmux-mem-cpu-load)是一个更好的方案，但原项目中没有显示CPU温度，本工程在thewtex基础上增加了CPU温度显示。
 
 ### macOS
 
@@ -90,18 +90,21 @@ There are links to the source code at the `project homepage`_.
 
 ## Configuring tmux_
 
-
 Edit ``$HOME/.tmux.conf`` to display the program's output in *status-left* or
-*status-right*.  For example::
+*status-right*.  For example:
 
+```lisp
   set -g status-interval 2
   set -g status-left "#S #[fg=green,bg=black]#(tmux-mem-cpu-load --colors --interval 2)#[default]"
   set -g status-left-length 60
 
+```
+
 If you installed using tpm, you must specify the full path to the
 ``tmux-mem-cpu-load`` script, like below::
-
+```lisp
   set -g status-right "#[fg=green]#($TMUX_PLUGIN_MANAGER_PATH/tmux-mem-cpu-load/tmux-mem-cpu-load --colors --powerline-right --interval 2)#[default]"
+```
 
 Note that the *interval* argument to `tmux-mem-cpu-load` should be the same number
 of seconds that *status-interval* is set at.
@@ -112,8 +115,9 @@ multi-core system.
 
 The *colors* option will add graded colors for each of the measures.
 
-The full usage::
+The full usage:
 
+```shell
   Usage: tmux-mem-cpu-load [OPTIONS]
 
   Available options:
@@ -135,7 +139,7 @@ The full usage::
         Set cpu % display mode. 0: Default max 100%, 1: Max 100% * number of threads.
   -a <value>, --averages-count <value>
         Set how many load-averages should be drawn. Default: 3
-
+```
 
 
 ## Authors
