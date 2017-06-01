@@ -68,13 +68,16 @@ Currently, Linux, Mac OSX, FreeBSD, OpenBSD, and NetBSD are supported.
 ### Download
 
 
-There are links to the source code at the `project homepage`_.
+There are links to the source code at the [project homepage](http://github.com/dean-wong/tmux-mem-cpu-load)
+
+
 
 ### Build
 
 ```shell
   cd <source dir>
-  cmake .
+  mkdir -p build && cd build
+  cmake ..
   make
 ```
 
@@ -161,11 +164,9 @@ Contributions from:
 * `@nhdaly`_ (Nathan Daly) <nhdaly@gmail.com>
 
 
-.. _tmux: http://tmux.sourceforge.net/
-.. _CMake: http://www.cmake.org
-.. _`project homepage`: http://github.com/dean-wong/tmux-mem-cpu-load
-.. _`tpm`: http://github.com/tmux-plugins/tpm
-.. _`terminals with 256 color support`: http://misc.flogisoft.com/bash/tip_colors_and_formatting#terminals_compatibility
-.. _`Pawel 'l0ner' Soltys` : http://l0ner.github.io/
-.. _`@nhdaly` : http://github.com/nhdaly
+[tmux](http://tmux.sourceforge.net/)
+[CMake](http://www.cmake.org)
+[terminals with 256 color support]( http://misc.flogisoft.com/bash/tip_colors_and_formatting#terminals_compatibility)
+[Pawel 'l0ner' Soltys](http://l0ner.github.io/)
+[nhdaly](http://github.com/nhdaly)
 
