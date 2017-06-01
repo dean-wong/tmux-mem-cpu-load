@@ -42,6 +42,7 @@ std::string cpu_string( CPU_MODE cpu_mode, unsigned int cpu_usage_delay, unsigne
 
   float percentage;
   float multiplier = 1.0f;
+  float temperature = 0.0f;
 
   //output stuff
   std::ostringstream oss;
@@ -80,6 +81,12 @@ std::string cpu_string( CPU_MODE cpu_mode, unsigned int cpu_usage_delay, unsigne
     }
   }
 
+  // get temperature
+  temperature = cpu_temperature('C');
+  oss << " ";
+  oss << temperature;
+  oss << "°C";
+
   if( graph_lines > 0)
   {
     oss << " [";
@@ -89,6 +96,7 @@ std::string cpu_string( CPU_MODE cpu_mode, unsigned int cpu_usage_delay, unsigne
   oss.width( 5 );
   oss << percentage * multiplier;
   oss << "%";
+
   if( use_colors )
   {
     if( use_powerline_left )

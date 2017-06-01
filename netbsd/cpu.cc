@@ -63,3 +63,9 @@ float cpu_percentage( unsigned int cpu_usage_delay )
     static_cast<float>( diff_user + diff_system + diff_nice + diff_idle ) *
     100.0;
 }
+
+double cpu_temperature(const char c /*= 'C'*/)
+{
+  // TODO:
+  return 0;
+}

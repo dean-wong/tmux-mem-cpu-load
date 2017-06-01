@@ -60,4 +60,6 @@ enum CPU_MODE
   CPU_MODE_THREADS
 };
 
+double cpu_temperature(const char c = 'C');
+
 #endif

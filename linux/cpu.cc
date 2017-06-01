@@ -76,3 +76,8 @@ float cpu_percentage( unsigned cpu_usage_delay )
     ) * 100.0;
 }
 
+double cpu_temperature(const char c /*= 'C'*/)
+{
+  // TODO:
+  return 0;
+}
