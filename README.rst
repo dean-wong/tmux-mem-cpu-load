@@ -5,11 +5,24 @@
 CPU, RAM, and load monitor for use with tmux_
 ---------------------------------------------
 
-.. image:: https://travis-ci.org/thewtex/tmux-mem-cpu-load.svg
-  :target: https://travis-ci.org/thewtex/tmux-mem-cpu-load
+.. image:: https://travis-ci.org/dean-wong/tmux-mem-cpu-load.svg
+  :target: https://travis-ci.org/dean-wong/tmux-mem-cpu-load
 
-.. image:: https://circleci.com/gh/thewtex/tmux-mem-cpu-load.svg?style=svg
-  :target: https://circleci.com/gh/thewtex/tmux-mem-cpu-load
+.. image:: https://circleci.com/gh/dean-wong/tmux-mem-cpu-load.svg?style=svg
+  :target: https://circleci.com/gh/dean-wong/tmux-mem-cpu-load
+
+
+中文说明
+========
+[powerline-status](https://pypi.python.org/pypi/powerline-status/)的效率较低，在tmux上显示系统信息，[thewtex](http://github.com/thewtex/tmux-mem-cpu-load)是一个较好的方案，但是原项目中没有显示CPU的温度，我在thewtex基础上增加了CPU温度显示功能。
+
+macOS
+-----
+![macOS](https://ws4.sinaimg.cn/large/006tKfTcgy1fg5t0km08xj30iy08owel.jpg)
+
+Linux
+-----
+![Raspberry Pi 3](https://ws1.sinaimg.cn/large/006tKfTcgy1fg5t0o9ki4j30iy08ot8u.jpg)
 
 Description
 ===========
@@ -19,26 +32,27 @@ line of **tmux**.
 
 The memory monitor displays the used and available memory.
 
-The CPU usage monitor outputs a percent CPU usage over all processors. It also
+The CPU usage monitor outputs **CPU temperature** and a percent CPU usage over all processors. It also
 displays a textual bar graph of the current percent usage.
 
 The system load average is also displayed.
 
 Example output::
 
-  2885/7987MB [|||||     ]  51.2% 2.11 2.35 2.44
+  2885/7987MB 57.2°C [|||||     ]  51.2% 2.11 2.35 2.44
 
-   ^    ^          ^         ^     ^    ^    ^
-   |    |          |         |     |    |    |
-   1    2          3         4     5    6    7
+   ^    ^       ^         ^          ^     ^    ^    ^
+   |    |       |         |          |     |    |    |
+   1    2       3         4          5     6    7    8
 
 1. Currently used memory.
 2. Available memory.
-3. CPU usage bar graph.
-4. CPU usage percentage.
-5. Load average for the past minute.
-6. Load average for the past 5 minutes.
-7. Load average for the past 15 minutes.
+3. **CPU temperature.**
+4. CPU usage bar graph.
+5. CPU usage percentage.
+6. Load average for the past minute.
+7. Load average for the past 5 minutes.
+8. Load average for the past 15 minutes.
 
 For `terminals with 256 color support`_, graded colors can be displayed by
 passing the **--colors** flag.
@@ -81,30 +95,6 @@ Install
   make install
   logout
 
-Build and Install Using tpm_
------------------------------
-
-Include the plugin in your ``.tmux.conf``, the same file you'll set the
-configuration in, below.
-
-::
-
-  set -g @plugin 'thewtex/tmux-mem-cpu-load'
-
-Install with Package Managers
------------------------------
-
-* Gentoo: ``emerge tmux-mem-cpu-load``
-* Homebrew: ``brew install tmux-mem-cpu-load``
-
-Build and Install Using Antigen_
---------------------------------
-
-Include the bundle in your ``.zshrc``
-
-::
-
-  antigen bundle thewtex/tmux-mem-cpu-load
 
 Configuring tmux_
 =================
@@ -178,9 +168,8 @@ Contributions from:
 
 .. _tmux: http://tmux.sourceforge.net/
 .. _CMake: http://www.cmake.org
-.. _`project homepage`: http://github.com/thewtex/tmux-mem-cpu-load
+.. _`project homepage`: http://github.com/dean-wong/tmux-mem-cpu-load
 .. _`tpm`: http://github.com/tmux-plugins/tpm
-.. _`Antigen`: https://github.com/zsh-users/antigen
 .. _`terminals with 256 color support`: http://misc.flogisoft.com/bash/tip_colors_and_formatting#terminals_compatibility
 .. _`Pawel 'l0ner' Soltys` : http://l0ner.github.io/
 .. _`@nhdaly` : http://github.com/nhdaly
