@@ -1,6 +1,6 @@
 # tmux-mem-cpu-load
 
-## CPU, RAM, and load monitor for use with tmux_
+## CPU, RAM, and load monitor for use with tmux
 
 
 ![](https://travis-ci.org/dean-wong/tmux-mem-cpu-load.svg)
@@ -9,18 +9,27 @@
 
 在tmux上显示系统信息，[powerline-status](https://pypi.python.org/pypi/powerline-status/)的效率较低，[thewtex](http://github.com/thewtex/tmux-mem-cpu-load)是一个更好的方案，但原项目中没有显示CPU温度，本工程在thewtex基础上增加了CPU温度显示。
 
-### macOS
+### Sample
+```lisp
+set -g status-left-length 20
+set -g status-left '#[fg=#fff6da]#S '
+set -g status-left-attr bold
+set -g status-right-length 60
+set -g status-right '#(tmux-mem-cpu-load -i 2 -q -c -a 0) %R'
+set -g status-right-attr default
+```
+
+#### macOS
 
 ![macOS](https://ws4.sinaimg.cn/large/006tKfTcgy1fg5t0km08xj30iy08owel.jpg)
 
-### Linux
+#### Linux
 
 ![Raspberry Pi 3](https://ws1.sinaimg.cn/large/006tKfTcgy1fg5t0o9ki4j30iy08ot8u.jpg)
 
 ## Description
 
-A simple, lightweight program provided for system monitoring in the *status*
-line of **tmux**.
+A simple, lightweight program provided for system monitoring in the *status* line of **tmux**.
 
 The memory monitor displays the used and available memory.
 
@@ -29,7 +38,7 @@ displays a textual bar graph of the current percent usage.
 
 The system load average is also displayed.
 
-Example output::
+Example output:
 ```
   2885/7987MB 57.2°C [|||||     ]  51.2% 2.11 2.35 2.44
 
@@ -47,9 +56,7 @@ Example output::
 7. Load average for the past 5 minutes.
 8. Load average for the past 15 minutes.
 
-For `terminals with 256 color support`_, graded colors can be displayed by
-passing the **--colors** flag.
-
+For `terminals with 256 color support`, graded colors can be displayed by passing the **--colors** flag.
 
 ## Installation
 
@@ -81,7 +88,6 @@ There are links to the source code at the [project homepage](http://github.com/d
   make
 ```
 
-
 ### Install
 
 ```shell
@@ -89,7 +95,6 @@ There are links to the source code at the [project homepage](http://github.com/d
   make install
   logout
 ```
-
 
 ## Configuring tmux_
 
@@ -104,7 +109,7 @@ Edit ``$HOME/.tmux.conf`` to display the program's output in *status-left* or
 ```
 
 If you installed using tpm, you must specify the full path to the
-``tmux-mem-cpu-load`` script, like below::
+``tmux-mem-cpu-load`` script, like below:
 ```lisp
   set -g status-right "#[fg=green]#($TMUX_PLUGIN_MANAGER_PATH/tmux-mem-cpu-load/tmux-mem-cpu-load --colors --powerline-right --interval 2)#[default]"
 ```
