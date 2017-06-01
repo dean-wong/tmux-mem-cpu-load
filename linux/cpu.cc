@@ -78,6 +78,18 @@ float cpu_percentage( unsigned cpu_usage_delay )
 
 double cpu_temperature(const char c /*= 'C'*/)
 {
-  // TODO:
-  return 0;
+  // Raspberry can work.
+  char buf[64] = {0};
+  const char* cmdLine = "/opt/vc/bin/vcgencmd measure_temp | cut -d = -f 2 | cut -d \"'\" -f 1";
+
+  FILE* stream = popen(cmdLine, "r");
+  if (stream){
+    fgets(buf, sizeof(buf), stream);
+    pclose(stream);
+    stream = NULL;
+  }
+
+  char* end = NULL;
+  double result = strtod(buf, &end);
+  return result;
 }
