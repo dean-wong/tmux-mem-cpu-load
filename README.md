@@ -1,31 +1,23 @@
-=============================================
-            tmux-mem-cpu-load
-=============================================
----------------------------------------------
-CPU, RAM, and load monitor for use with tmux_
----------------------------------------------
+# tmux-mem-cpu-load
 
-.. image:: https://travis-ci.org/dean-wong/tmux-mem-cpu-load.svg
-  :target: https://travis-ci.org/dean-wong/tmux-mem-cpu-load
-
-.. image:: https://circleci.com/gh/dean-wong/tmux-mem-cpu-load.svg?style=svg
-  :target: https://circleci.com/gh/dean-wong/tmux-mem-cpu-load
+## CPU, RAM, and load monitor for use with tmux_
 
 
-中文说明
-========
-[powerline-status](https://pypi.python.org/pypi/powerline-status/)的效率较低，在tmux上显示系统信息，[thewtex](http://github.com/thewtex/tmux-mem-cpu-load)是一个较好的方案，但是原项目中没有显示CPU的温度，我在thewtex基础上增加了CPU温度显示功能。
+![](https://travis-ci.org/dean-wong/tmux-mem-cpu-load.svg)
 
-macOS
------
+## 说明
+
+在tmux上显示系统信息，[powerline-status](https://pypi.python.org/pypi/powerline-status/)的效率较低，[thewtex](http://github.com/thewtex/tmux-mem-cpu-load)是一个更好的方案，但原项目中没有显示CPU温度，在thewtex基础上增加了CPU温度显示。
+
+### macOS
+
 ![macOS](https://ws4.sinaimg.cn/large/006tKfTcgy1fg5t0km08xj30iy08owel.jpg)
 
-Linux
------
+### Linux
+
 ![Raspberry Pi 3](https://ws1.sinaimg.cn/large/006tKfTcgy1fg5t0o9ki4j30iy08ot8u.jpg)
 
-Description
-===========
+## Description
 
 A simple, lightweight program provided for system monitoring in the *status*
 line of **tmux**.
@@ -38,12 +30,13 @@ displays a textual bar graph of the current percent usage.
 The system load average is also displayed.
 
 Example output::
-
+```
   2885/7987MB 57.2°C [|||||     ]  51.2% 2.11 2.35 2.44
 
    ^    ^       ^         ^          ^     ^    ^    ^
    |    |       |         |          |     |    |    |
    1    2       3         4          5     6    7    8
+```
 
 1. Currently used memory.
 2. Available memory.
@@ -58,46 +51,45 @@ For `terminals with 256 color support`_, graded colors can be displayed by
 passing the **--colors** flag.
 
 
-Installation
-============
+## Installation
 
-Dependencies
-------------
+
+### Dependencies
+
 
 Currently, Linux, Mac OSX, FreeBSD, OpenBSD, and NetBSD are supported.
 
-Building
-~~~~~~~~
+#### Building
+
 
 * >= CMake_ -2.6
 * C++ compiler with C++11 support (e.g. gcc/g++ >= 4.6)
 
-Download
---------
+### Download
+
 
 There are links to the source code at the `project homepage`_.
 
-Build
------
+### Build
 
-::
-
+```shell
   cd <source dir>
   cmake .
   make
+```
 
-Install
--------
 
-::
+### Install
 
+```shell
   su -
   make install
   logout
+```
 
 
-Configuring tmux_
-=================
+## Configuring tmux_
+
 
 Edit ``$HOME/.tmux.conf`` to display the program's output in *status-left* or
 *status-right*.  For example::
@@ -146,8 +138,7 @@ The full usage::
 
 
 
-Authors
-=======
+## Authors
 
 Matt McCormick (thewtex) <matt@mmmccormick.com>
 
@@ -173,3 +164,4 @@ Contributions from:
 .. _`terminals with 256 color support`: http://misc.flogisoft.com/bash/tip_colors_and_formatting#terminals_compatibility
 .. _`Pawel 'l0ner' Soltys` : http://l0ner.github.io/
 .. _`@nhdaly` : http://github.com/nhdaly
+
