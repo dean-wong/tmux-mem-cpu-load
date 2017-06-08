@@ -16,47 +16,41 @@
  * limitations under the License.
  */
 
-#include <string>
 #include <cstring>
+#include <string>
 
 #include "graph.h"
 
-std::string get_graph_by_percentage( unsigned value, unsigned len ) 
+std::string get_graph_by_percentage(unsigned value, unsigned len)
 {
   unsigned step = 0;
   std::string bars;
 
-  unsigned bar_count = ( static_cast<float>(value) / 99.9 * len );
+  unsigned bar_count = (static_cast<float>(value) / 99.9 * len);
 
-  for( ; step < bar_count; step++ )
-  {
-    bars.append( "|" );
+  for (; step < bar_count; step++) {
+    bars.append("█");
   }
-  for( ; step < len; step++ )
-  {
-    bars.append( " " );
+  for (; step < len; step++) {
+    bars.append("-");
   }
 
   return bars;
 }
 
-
-std::string get_graph_by_value( unsigned value, unsigned max, unsigned len )
+std::string get_graph_by_value(unsigned value, unsigned max, unsigned len)
 {
   unsigned step = 0;
   std::string bars;
 
-  unsigned bar_count = ( static_cast<float>( value / ( max - 0.1 ) ) * len );
+  unsigned bar_count = (static_cast<float>(value / (max - 0.1)) * len);
 
-  for( ; step < bar_count; step++ )
-  {
-    bars.append( "|" );
+  for (; step < bar_count; step++) {
+    bars.append("|");
   }
-  for( ; step < len; step++ )
-  {
-    bars.append( " " );
+  for (; step < len; step++) {
+    bars.append(" ");
   }
 
   return bars;
 }
-

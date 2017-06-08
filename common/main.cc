@@ -89,9 +89,9 @@ std::string cpu_string( CPU_MODE cpu_mode, unsigned int cpu_usage_delay, unsigne
 
   if( graph_lines > 0)
   {
-    oss << " [";
+    oss << " |";
     oss << get_graph_by_percentage( unsigned( percentage ), graph_lines );
-    oss << "]";
+    oss << "|";
   }
   oss.width( 5 );
   oss << percentage * multiplier;
